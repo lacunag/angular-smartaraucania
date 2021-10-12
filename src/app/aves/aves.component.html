@@ -1,0 +1,54 @@
+<div class="py-5">
+
+    <div class="card border-light bg-light p-5">
+        <div class="card-body">
+            <h1 class=" card-title text-center display-4">AVES CHILENAS</h1>
+            <div class="row py-lg-3">
+                <div class="col-lg-9 col-md-8 mx-auto">
+                    <div class="input-group">
+                        <input type="text" class="form-control" (input)="inputCambiado($event)">
+                        <button class="btn btn-secondary" type="button" (click)="buscarAve()">Buscar Ave</button>
+                    </div>
+                </div>
+            </div>
+            <p class="card-text text-center">
+                <small class="card-text text-center">Toda la información desplegada es obtenida desde <b>smartaraucania</b></small>
+            </p>
+            
+
+        </div>
+    </div>
+</div>
+
+<div class="py-5 ">
+    <div class="container">
+        <div *ngIf="cargando; else avesCargadas">
+            <div class="text-center">
+                <i class="fas fa-spinner fa-3x pb-2"></i>
+                <p>Cargando Información AVES CHILE</p>
+                
+            </div>
+        </div>
+        <ng-template #avesCargadas>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col" *ngFor="let repo of avesFiltradas;">
+                    <div class="card shadow-sm">
+                        <img src="{{repo.images.main}}" class="card-img-top" width="100%" height="320">
+
+                        <div class="card-body">
+                            <p class="card-text">{{repo.name.spanish}} / {{repo.name.english}}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                        (click)="detalle(repo.images.main)">Más Información</button>
+                                </div>
+                                <small class="text-muted">{{repo.uid}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </ng-template>
+    </div>
+</div>
