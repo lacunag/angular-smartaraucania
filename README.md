@@ -1,13 +1,13 @@
-# Smart Araucania
+## Smart Araucania
 
 In this project we will show all Chilean birds obtained from the api "Smart Araucania".
 
-## Server Requirements
+### Server Requirements
 
-Angular 12
-NodeJS
+- Angular 12
+- NodeJS
 
-## Development server
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
